@@ -23,5 +23,6 @@ def _domain_separator() -> bytes32:
     # NOTE: Can be used to set `DOMAIN_SEPARATOR` during constructor when using `Permit`,
     #       or you can use your own, just a helpful function to use
     return eip712.generate_domain_separator(
-        keccak256(abi.encode(EIP712_DOMAIN_HASH, name, "1.0", chain.id, self))
+        EIP712_DOMAIN_HASH,
+        abi.encode(name, "1.0", chain.id, self),
     )
