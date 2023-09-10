@@ -1,10 +1,13 @@
-from . import BaseToken
+# `..utils.Ownable` has concrete `_isOwner`
+@internal
+def _isOwner(user: address):
+    ...  # This is abstract, and must be implemented or in the base of an extension
 
-from ..utils import Ownable
 
-extends: BaseToken, Ownable
-# Extends `BaseToken` so has `_mint`
-# Extends `Ownable` so has access to `self.owner`
+# `BaseToken` has concrete `_mint`
+@internal
+def _mint(owner: address, amount: uint256):
+    ...  # This is abstract, and must be implemented or in the base of an extension
 
 
 @external
