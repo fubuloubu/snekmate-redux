@@ -1,9 +1,9 @@
 from snekmate.erc20 import BaseToken, Mintable, Permit, TokenDetails, Burnable, FlashMintable
-from snekmate.utils import Ownable
+from snekmate.utils.ownership import SingleOwner
 
 extends: BaseToken, Mintable, Burnable, TokenDetails, Permit, FlashMintable
 # NOTE: `Mintable` has abstract `_mint`, but `BaseToken._mint` satisfies it
-# NOTE: `Mintable` has abstract `_isOwner`, but `Ownable._isOwner` satisfies it
+# NOTE: `Mintable` has abstract `_isOwner`, but `SingleOwner._isOwner` satisfies it
 # NOTE: `Burnable` has abstract `_burn`, but `BaseToken._burn` satisfies it
 # NOTE: `Permit` has abstract `_approve`, but `BaseToken._approve` satisfies it
 # NOTE: `FlashMintable` has abstract `_mint`, but `BaseToken._mint` satisfies it

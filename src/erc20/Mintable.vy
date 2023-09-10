@@ -1,4 +1,4 @@
-# `..utils.Ownable` has concrete `_isOwner`
+# `..utils.ownership.*` has concrete `_isOwner`
 @internal
 def _isOwner(user: address):
     ...  # This is abstract, and must be implemented or in the base of an extension
