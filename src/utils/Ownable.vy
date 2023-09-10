@@ -3,9 +3,15 @@ owner: public(address)
 pending_owner: address
 
 
+# NOTE: Is useful downstream
+@internal
+def _isOwner(user: address):
+    return user == self.owner
+
+
 @external
 def transferOwnership(new_owner: address):
-    assert msg.sender == self.owner
+    assert self._isOwner(msg.sender)
     self.pending_owner = new_owner
 
 
