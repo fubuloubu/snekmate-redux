@@ -1,9 +1,16 @@
 # `from ethereum.erc import ERC3156` and `implements: ERC3156` when available
 
-from . import BaseToken
 
-extends: BaseToken
-# Extends `BaseToken` so has `_mint` and `_reduceAllowance`
+# `BaseToken` has concrete `_mint`
+@internal
+def _mint(owner: address, amount: uint256):
+    ... # This is abstract, and must be implemented or in the base of an extension
+
+
+# `BaseToken` has concrete `_reduceAllowance`
+@internal
+def _reduceAllowance(owner: address, spender: address, amount: uint256):
+    ... # This is abstract, and must be implemented or in the base of an extension
 
 
 interface FlashBorrower:
